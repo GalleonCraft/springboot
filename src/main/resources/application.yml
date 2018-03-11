@@ -1,0 +1,39 @@
+logging:
+  level:
+    com.foalnet: trace
+
+server:
+  port: 8080
+  session-timeout: 30
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  http:
+      encoding:
+        force: true
+        charset: UTF-8
+        enabled: true
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver #{com.microsoft.sqlserver.jdbc.SQLServerDriver \ com.mysql.jdbc.Driver}
+      url: jdbc:mysql://localhost:3306/spring-boot?useUnicode=true&characterEncoding=utf-8&useSSL=false #{jdbc:sqlserver://localhost:1433;DatabaseName=cloud-sale \ jdbc:mysql://localhost:3306/cloud-sale}
+      username: fyqvip
+      password: 911120
+      type: com.alibaba.druid.pool.DruidDataSource
+      connectionProperties: druid.stat.mergeSql=true
+
+mybatis:
+    type-aliases-package: tk.mybatis.springboot.model
+    mapper-locations: classpath:mapper/*.xml
+    mapper:
+        mappers: tk.mybatis.springboot.util.BaseMapper
+        not-empty: false
+        identity: MYSQL #{SQLSERVER \ MYSQL}
+
+pagehelper:
+    helperDialect: mysql #{mysql | SQLSERVER}
+    reasonable: true
+    supportMethodsArguments: true
+    rowBoundsWithCount: true
+    offsetAsPageNum: true
+    params: count=countSql
