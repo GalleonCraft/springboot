@@ -1,6 +1,6 @@
 logging:
   level:
-    com.foalnet: trace
+    com.galleon: trace
 
 server:
   port: 8080
