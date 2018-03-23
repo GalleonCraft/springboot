@@ -4,7 +4,6 @@ import com.galleon.springboot.entity.User;
 import com.galleon.springboot.util.BaseMapper;
 import org.apache.ibatis.annotations.*;
 
-@Mapper
 public interface UserMapper extends BaseMapper<User>{
     @Select("SELECT * FROM t_user " +
             "WHERE username=#{username} ")

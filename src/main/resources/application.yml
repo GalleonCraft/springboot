@@ -23,12 +23,13 @@ spring:
       connectionProperties: druid.stat.mergeSql=true
 
 mybatis:
-    type-aliases-package: tk.mybatis.springboot.model
-    mapper-locations: classpath:mapper/*.xml
-    mapper:
-        mappers: tk.mybatis.springboot.util.BaseMapper
-        not-empty: false
-        identity: MYSQL #{SQLSERVER \ MYSQL}
+   type-aliases-package: com.galleon.springboot.entity
+   mapper-locations: classpath:mapper/*.xml
+
+mapper:
+    mappers: com.galleon.springboot.util.BaseMapper
+    not-empty: false
+    identity: MYSQL #{SQLSERVER \ MYSQL}
 
 pagehelper:
     helperDialect: mysql #{mysql | SQLSERVER}
